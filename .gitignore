@@ -1,2 +1,9 @@
 /.gradle
 /eureka/build
+/common/.settings
+/common/.classpath
+/common/.project
+.classpath
+.project
+.settings
+build
