@@ -10,3 +10,4 @@ build
 /patient/logs/*.log
 /patient/data/patient.mv.db
 /patient/data/patient.trace.db
+/physician/logs/clifford.log
