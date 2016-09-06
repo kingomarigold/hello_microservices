@@ -1,6 +1,6 @@
 
 server:
-    port: 7080
+    port: 7081
 
 eureka:
     client:
@@ -9,10 +9,10 @@ eureka:
 
 spring:
     application:
-        name: patient
+        name: physician
     datasource:
         dataSourceClassName: org.h2.jdbcx.JdbcDataSource
-        url: jdbc:h2:file:./data/patient;MODE=MYSQL;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;
+        url: jdbc:h2:file:./data/physician;MODE=MYSQL;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;
         databaseName:
         serverName:
         username:

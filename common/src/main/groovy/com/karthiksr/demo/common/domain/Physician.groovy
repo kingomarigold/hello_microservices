@@ -4,6 +4,9 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.Table
+import javax.validation.constraints.NotNull
+
+import org.hibernate.validator.constraints.NotEmpty
 
 @Entity
 @Table(name="physician")
@@ -13,13 +16,16 @@ class Physician {
 	@GeneratedValue
 	Long id
 	
+	@NotEmpty
 	String firstName
 	
+	@NotEmpty
 	String lastName
 	
 	String middleName
 	
 	String speciality
 	
+	@NotNull
 	Double yearsOfExp
 }
