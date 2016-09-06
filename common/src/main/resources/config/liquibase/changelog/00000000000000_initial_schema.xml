@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<property name="now" value="now()" dbms="mysql,h2" />
+	<property name="now" value="current_timestamp" dbms="postgresql" />
+
+
+	<changeSet id="00000000000000" author="karthik" dbms="postgresql">
+		<createSequence sequenceName="hibernate_sequence"
+			startValue="1000" incrementBy="1" />
+	</changeSet>
+	
+	<changeSet id="0000000000000-1" author="karthik">
+		<createTable tableName="patient">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="first_name" type="varchar(255)"></column>
+			<column name="middle_name" type="varchar(255)"></column>
+			<column name="last_name" type="varchar(255)"></column>
+		</createTable>
+		
+		<createTable tableName="physician">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="first_name" type="varchar(255)"></column>
+			<column name="middle_name" type="varchar(255)"></column>
+			<column name="last_name" type="varchar(255)"></column>
+			<column name="speciality" type="varchar(255)"></column>
+			<column name="years_of_exp" type="decimal(10,2)"></column>
+		</createTable>
+		
+		<createTable tableName="schedule">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="patient_id" type="bigint"></column>
+			<column name="physician_id" type="bigint"></column>
+			<column name="date" type="timestamp"></column>
+		</createTable>
+	</changeSet>
+
+</databaseChangeLog>
