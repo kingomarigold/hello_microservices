@@ -7,8 +7,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.karthiksr.demo.patient.PatientApplication;
@@ -16,7 +16,7 @@ import com.karthiksr.demo.patient.PatientApplication;
 
 
 @ContextConfiguration(classes = PatientApplication.class)
-@WebAppConfiguration
+@SpringBootTest
 @Transactional
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)

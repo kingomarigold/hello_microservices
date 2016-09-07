@@ -53,7 +53,7 @@ class PhysicianSpec extends WebAppIntegrationBaseSpecification {
 		then: 'All physicians are returned'
 		getAllRes.andExpect(status().isOk())
 		def getAllJson = new JsonSlurper().parseText(getAllRes.andReturn().response.contentAsString)
-		assert getAllJson.size() == 10
+		assert getAllJson.size() == 12
 	}
 	
 	def createPhysician(firstName,lastName,middleName,yearsOfExp,speciality) {

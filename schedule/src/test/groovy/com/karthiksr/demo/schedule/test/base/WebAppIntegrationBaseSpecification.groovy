@@ -11,6 +11,10 @@ import org.springframework.web.context.WebApplicationContext
 
 import spock.lang.Specification
 
+import com.karthiksr.demo.schedule.service.ScheduleService
+import com.karthiksr.demo.schedule.service.integration.PhysicianService
+import com.karthiksr.demo.schedule.web.transformer.ScheduleTransformer
+
 /**
  * Common functionalities required for all tests go here.
  * 
@@ -27,11 +31,21 @@ class WebAppIntegrationBaseSpecification extends Specification {
 	 */
 	def setup() {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build()
+		mockFeignClients()
 	}
 	
 	def getCreatedId(response) {
 		def createdEntityLocation =response.andReturn().getResponse().getHeader("Location")
 		createdEntityLocation.substring(createdEntityLocation.lastIndexOf('/') + 1)
+	}
+	
+	def mockFeignClients() {
+		def mockPhysicianService = [
+			findAll : {return [[firstName:'Elgar',id:1L,yearsOfExp:12.5],[firstName:'Falon',id:2L,yearsOfExp:10.5]]},
+			findById: {id->return id==1?[firstName:'Elgar']:[firstName:'Falon']}
+		] as PhysicianService
+		wac.getBean(ScheduleService.class).physicianService = mockPhysicianService
+		wac.getBean(ScheduleTransformer.class).physicianService = mockPhysicianService
 	}
 	
 }

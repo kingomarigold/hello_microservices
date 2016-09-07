@@ -3,6 +3,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
 
 import org.joda.time.DateTime
 import org.joda.time.format.ISODateTimeFormat
@@ -26,7 +27,8 @@ class ScheduleSpec extends WebAppIntegrationBaseSpecification {
 		res.andExpect(status().is(201))
 		def getRes = this.mockMvc.perform(get("/api/schedule/${getCreatedId(res)}"))
 		getRes.andExpect(status().isOk())
-		assert getRes.physician.firstName == "Elgar"
+		def getJson = new JsonSlurper().parseText(getRes.andReturn().response.contentAsString)
+		assert getJson.physician.firstName == "Elgar"
 		and: ' When you try to add schedule for another patient at the same time'
 		def anotherRes = this.mockMvc.perform(post('/api/schedule')
 			.content(JsonOutput.toJson([patientId:2,
@@ -37,6 +39,7 @@ class ScheduleSpec extends WebAppIntegrationBaseSpecification {
 		anotherRes.andExpect(status().is(201))
 		def getAnotherRes = this.mockMvc.perform(get("/api/schedule/${getCreatedId(anotherRes)}"))
 		getAnotherRes.andExpect(status().isOk())
-		assert getAnotherRes.physician.firstName == "Falon"
+		def getAnotherJson = new JsonSlurper().parseText(getAnotherRes.andReturn().response.contentAsString)
+		assert getAnotherJson.physician.firstName == "Falon"
 	}
 }
