@@ -41,6 +41,27 @@ class PhysicianSpec extends WebAppIntegrationBaseSpecification {
 		yearsOfExp << [10.5,10.5,11.25,null,12.5]
 		speciality << ['Inquisitor','','','','']
 		expectedStatus << [201,201,400,400,201]
-		
+	}
+	
+	def 'Test finding all physicians'() {
+		given: 'We have physicians created'
+		10.times {
+			createPhysician("fname_${it}","lname_${it}","",2*it,"")
+		}
+		when: 'We fetch all the physicians'
+		def getAllRes = this.mockMvc.perform(get('/api/physician'))
+		then: 'All physicians are returned'
+		getAllRes.andExpect(status().isOk())
+		def getAllJson = new JsonSlurper().parseText(getAllRes.andReturn().response.contentAsString)
+		assert getAllJson.size() == 10
+	}
+	
+	def createPhysician(firstName,lastName,middleName,yearsOfExp,speciality) {
+		def res = this.mockMvc.perform(post('/api/physician')
+			.content(JsonOutput.toJson([firstName:firstName,lastName:lastName,middleName:middleName,
+				yearsOfExp:yearsOfExp,speciality:speciality]))
+			.contentType(MediaType.APPLICATION_JSON))
+		res.andExpect(status().is(201))
+		getCreatedId(res)
 	}
 }

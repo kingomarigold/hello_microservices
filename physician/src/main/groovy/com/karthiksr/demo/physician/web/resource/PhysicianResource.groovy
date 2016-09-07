@@ -30,4 +30,9 @@ class PhysicianResource {
 		def physician = physicianService.get(id)
 		physician?physician:ResponseEntity.notFound().build()
 	}
+	
+	@RequestMapping(value='',method=RequestMethod.GET)
+	def all() {
+		physicianService.all()
+	}
 }

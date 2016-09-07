@@ -18,4 +18,8 @@ class PhysicianService {
 	def get(id) {
 		physicianRepository.findOne(id)
 	}
+	
+	def all() {
+		physicianRepository.findAll()
+	}
 }

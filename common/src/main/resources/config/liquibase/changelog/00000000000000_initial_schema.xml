@@ -40,7 +40,30 @@
 			<column name="patient_id" type="bigint"></column>
 			<column name="physician_id" type="bigint"></column>
 			<column name="date" type="timestamp"></column>
+			<column name="duration" type="decimal(10,2)"></column>
 		</createTable>
 	</changeSet>
-
+	<changeSet id="2016090694100" author="karthik">
+		<insert tableName="patient">
+			<column name="first_name" value="Fen"></column>
+			<column name="middle_name" value="Harel"></column>
+			<column name="last_name" value="DreadWolf"></column>
+		</insert>
+		<insert tableName="patient">
+			<column name="first_name" value="Mythal"></column>
+			<column name="last_name" value="TheProtector"></column>
+		</insert>
+		<insert tableName="physician">
+			<column name="first_name" value="Falon"></column>
+			<column name="middle_name" value="Din"></column>
+			<column name="last_name" value="TheGuide"></column>
+			<column name="years_of_exp" value="10.2"></column>
+		</insert>
+		<insert tableName="physician">
+			<column name="first_name" value="Elgar"></column>
+			<column name="middle_name" value="Nan"></column>
+			<column name="last_name" value="TheFirst"></column>
+			<column name="years_of_exp" value="12.5"></column>
+		</insert>
+	</changeSet>
 </databaseChangeLog>

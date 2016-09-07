@@ -46,6 +46,10 @@ dependencies {
 	testCompile 'org.spockframework:spock-spring'
 }
 
+test {
+	systemProperty 'spring.profiles.active','test'
+}
+
 dependencyManagement {
 	imports {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.SR5"
