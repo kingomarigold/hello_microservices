@@ -14,3 +14,6 @@ build
 /physician/logs/common.2016-09-06.0.log
 /physician/logs/common.log
 /schedule/logs/common.log
+/schedule/data/*.db
+/schedule/logs/*.log
+/physician/data/*.db
