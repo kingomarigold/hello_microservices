@@ -1,0 +1,28 @@
+
+server:
+    port: 8080
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+
+zuul:
+    ignoredServices: '*'
+    routes:
+        patient:
+            path: /api/patient/**
+            serviceId: patient
+            stripPrefix: false
+        physician:
+            path: /api/physician/**
+            serviceId: physician
+            stripPrefix: false
+        schedule:
+            path: /api/schedule/**
+            serviceId: schedule
+            stripPrefix: false
+
+spring:
+    application:
+        name: gateway
