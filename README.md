@@ -1,4 +1,5 @@
-# hello_microservices
+# A hello micro-services application
+This is to demo the use of the spring cloud netflix stack to run micro-services.
 
 ## Prerequisites
 ```
