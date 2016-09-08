@@ -1,9 +1,11 @@
 # hello_microservices
 
 ## Prerequisites
+```
 gradle 2+
 Java 1.8
 Eclipse with Groovy 2.4 plugin.
+```
 
 ## Instructions to setup
 ```
