@@ -1,7 +1,7 @@
 package com.karthiksr.demo.auth.service
 
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 
 import com.karthiksr.demo.auth.repository.UserRepository
@@ -9,14 +9,16 @@ import com.karthiksr.demo.auth.repository.UserRepository
 @Service
 class UserService {
 	
-	static def encoder = new BCryptPasswordEncoder()
 	
 	@Autowired
 	UserRepository userRepository
+	
+	@Autowired
+	PasswordEncoder passwordEncoder
 
 	def authenticate(user,pwd) {
 		def myUser = userRepository.findByUserId(user)
-		myUser?encoder.matches(pwd,myUser.password):false
+		myUser?passwordEncoder.matches(pwd,myUser.password):false
 	}
 	
 	def findOne(user) {
