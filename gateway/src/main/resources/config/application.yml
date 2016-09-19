@@ -26,3 +26,6 @@ zuul:
 spring:
     application:
         name: gateway
+auth:
+    secret:
+        joanshephard

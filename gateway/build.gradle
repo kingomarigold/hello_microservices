@@ -37,7 +37,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.codehaus.groovy:groovy')
-	compile project(':util')
+	compile project(':security')
+	compile group: 'com.h2database', name: 'h2'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
