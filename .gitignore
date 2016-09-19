@@ -17,3 +17,7 @@ build
 /schedule/data/*.db
 /schedule/logs/*.log
 /physician/data/*.db
+/auth/bin/application.properties
+/auth/bin/com/karthiksr/demo/AuthApplication.class
+/auth/bin/com/karthiksr/demo/AuthApplicationTests.class
+/util/.gradle/2.3/taskArtifacts
