@@ -1,1 +1,1 @@
-include 'common','patient','physician','schedule','gateway','eureka'
+include 'common','util','auth','patient','physician','schedule','gateway','eureka'

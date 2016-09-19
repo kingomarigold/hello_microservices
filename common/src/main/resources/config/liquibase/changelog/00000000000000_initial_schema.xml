@@ -66,4 +66,36 @@
 			<column name="years_of_exp" value="12.5"></column>
 		</insert>
 	</changeSet>
+	
+	<changeSet id="20160914175100" author="karthik">
+		<createTable tableName="user">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="first_name" type="varchar(255)"></column>
+			<column name="last_name" type="varchar(255)"></column>
+			<column name="user_id" type="varchar(255)"></column>
+			<column name="email" type="varchar(255)"></column>
+			<column name="password" type="varchar(2048)"></column>
+			<column name="is_active" type="boolean" defaultValueBoolean="false"></column>
+		</createTable>
+		
+		<insert tableName="user">
+			<column name="first_name" value="Garrus"></column>
+			<column name="last_name" value="Varkarian"></column>
+			<column name="user_id" value="garrusv"></column>
+			<column name="email" value="garrus.varkarian@test.com"></column>
+			<column name="password" value=""></column>
+			<column name="is_active" value="true" ></column>
+		</insert>
+		
+		<insert tableName="user">
+			<column name="first_name" value="Ashley"></column>
+			<column name="last_name" value="Williams"></column>
+			<column name="user_id" value="ashleyw"></column>
+			<column name="email" value="ashley.williams@test.com"></column>
+			<column name="password" value=""></column>
+			<column name="is_active" value="true" ></column>
+		</insert>
+	</changeSet>
 </databaseChangeLog>
