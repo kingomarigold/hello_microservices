@@ -26,7 +26,7 @@ class Schedule {
 	
 	Long physicianId
 	
-	@Column(name="created_date")
+	@Column(name="date")
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	@JsonSerialize(using = CustomDateTimeSerializer.class)
 	@JsonDeserialize(using = CustomDateTimeDeserializer.class)

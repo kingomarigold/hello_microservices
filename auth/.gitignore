@@ -17,3 +17,4 @@ build
 /schedule/data/*.db
 /schedule/logs/*.log
 /physician/data/*.db
+/bin/

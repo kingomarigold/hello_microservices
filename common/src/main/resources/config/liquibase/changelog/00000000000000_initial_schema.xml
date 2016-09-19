@@ -85,7 +85,7 @@
 			<column name="last_name" value="Varkarian"></column>
 			<column name="user_id" value="garrusv"></column>
 			<column name="email" value="garrus.varkarian@test.com"></column>
-			<column name="password" value=""></column>
+			<column name="password" value="$2a$10$VDRQRSWnNYXADagbb8PSMe0Mox7Q303saWxaZVHA1IVlP15.xRKau"></column>
 			<column name="is_active" value="true" ></column>
 		</insert>
 		
@@ -94,7 +94,7 @@
 			<column name="last_name" value="Williams"></column>
 			<column name="user_id" value="ashleyw"></column>
 			<column name="email" value="ashley.williams@test.com"></column>
-			<column name="password" value=""></column>
+			<column name="password" value="$2a$10$VDRQRSWnNYXADagbb8PSMe0Mox7Q303saWxaZVHA1IVlP15.xRKau"></column>
 			<column name="is_active" value="true" ></column>
 		</insert>
 	</changeSet>
